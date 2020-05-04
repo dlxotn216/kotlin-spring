@@ -1,4 +1,4 @@
-package me.taesu.demo.chap01
+package me.taesu.demo.chap02
 
 /**
  * Created by itaesu on 04/05/2020.
