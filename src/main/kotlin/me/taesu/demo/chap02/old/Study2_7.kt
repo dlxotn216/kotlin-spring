@@ -1,4 +1,4 @@
-package me.taesu.demo.chap02
+package me.taesu.demo.chap02.old
 
 import java.util.*
 
