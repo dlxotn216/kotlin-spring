@@ -31,4 +31,18 @@ fun main(args: Array<String>) {
         println("Directory $dir, fileName: $fname, extension: $fextension")
     }
 
+
+    // nullable 체이닝에 대해서 테스트...
+    val arrayListOf: ArrayList<Menu>? = arrayListOf(Menu("pizza", 17000, true), Menu("pasta", 12000, false))
+    if(arrayListOf?.maxBy { it.price }?.deleted == true) {
+        println("max price menu was deleted")
+    }
+
+    val arrayListOfn: ArrayList<Menu>? = null
+    if(arrayListOfn?.maxBy { it.price }?.deleted == true) {
+        println("max price menu was deleted")
+    }
+
 }
+
+data class Menu(val name: String, val price: Int, val deleted: Boolean)
