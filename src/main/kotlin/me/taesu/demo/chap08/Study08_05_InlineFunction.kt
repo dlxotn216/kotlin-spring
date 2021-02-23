@@ -85,8 +85,15 @@ inline fun partialInline(inlined: () -> Unit, noinline notInlined: () -> Unit) {
 
     // partialInline이 누군가에 의해 호출되어 인라이닝 될 때 전달 받은 람다를 그대로 호출하지 않고
     // 어딘가에 저장하고 나중에 사용한다면 어딘가에는 그 람다가 존재해야 하기에 Illegal useage of inline-parameter 컴파일 에러 발생
+
+    // 또 다른 인라인 함수에는 전달 가능하다.
+    inlineother(inlined)
 }
 
 fun other(inlined: () -> Unit) {
+
+}
+
+inline fun inlineother(inlined: () -> Unit) {
 
 }
