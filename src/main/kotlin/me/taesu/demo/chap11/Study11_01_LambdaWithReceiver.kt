@@ -20,6 +20,12 @@ fun main(args: Array<String>) {
         this.append("aewfaf")
     })
 
+    println(buildString2 {
+        append("awef")
+        append("awef")
+        append("awef")
+    })
+
     // 변수에 대입
     val lambda: StringBuilder.() -> Unit = { append("!") }
     // 확장함수처럼 쓸 수 있음
@@ -52,6 +58,10 @@ fun buildString(action: (StringBuilder) -> Unit): String {
     action(sb)
     return sb.toString()
 }
+
+fun buildString2(action: StringBuilder.() -> Unit): String = StringBuilder().apply {
+    action()
+}.toString()
 
 // action에 StringBuilder.()을 통해서 수신 객체라는 상태를 부여함
 // {수신객체타입}.(파라미터) -> 반환타입
