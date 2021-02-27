@@ -10,7 +10,7 @@ import java.time.LocalDate
  * @since TBD
  */
 fun main(args: Array<String>) {
-    val mapOf = mutableMapOf(1 to "a", "b" to 2)
+    val mapOf: MutableMap<Any, Any> = mutableMapOf(1 to "a", "b" to 2)
     println(mapOf[1])
     println(mapOf["b"])
     mapOf[123] = "new"
