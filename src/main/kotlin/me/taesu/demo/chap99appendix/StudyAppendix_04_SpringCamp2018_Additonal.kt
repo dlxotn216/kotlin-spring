@@ -1,5 +1,9 @@
 package me.taesu.demo.chap99appendix
 
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
+import org.springframework.util.StopWatch
 import java.time.Duration
 
 /**
@@ -18,6 +22,20 @@ fun main() {
     println(map[12] ?: "UNKNOWN")
     map[12] = "nid"
     println(map[12] ?: "UNKNOWN")
+
+    val stopWatch = StopWatch()
+    stopWatch.start()
+    runBlocking {
+        val jobs = List(100_000) {
+            launch {
+                delay(1000L)
+            }
+        }
+        jobs.forEach { it.join() }
+    }
+    stopWatch.stop()
+    println("finished 100000 tasks ${stopWatch.totalTimeMillis}ms")
+    // finished 100000 tasks 1368ms
 }
 
 // Default parameter의 기본값이 동적으로 계산 될 수 있다.
